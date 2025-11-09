@@ -15,7 +15,7 @@ function App() {
         {/* --- Hero Section --- */}
         <section className="flex flex-col items-center text-center py-16 px-4">
           <img
-            src="/public/copy.jpg"
+            src="/copy.jpg"
             alt="Avinash Palakurthi"
             className="w-60 h-60 rounded-full object-cover mb-6 shadow-md"
           />
@@ -44,7 +44,7 @@ function App() {
           </p>
 
           <a
-            href="/public/avinash_resume.pdf"
+            href="/avinash_resume.pdf"
             download
             className="bg-gray-900 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition mt-6"
           >
