@@ -259,7 +259,9 @@ if (!document.head.querySelector(`#${styleId}`)) {
       border: 1px solid rgba(201,168,76,0.25); padding: 0.55rem 1.2rem;
       font-family: 'DM Mono', monospace; font-size: 0.78rem; letter-spacing: 0.08em;
       color: var(--gold); background: rgba(201,168,76,0.05);
+      text-decoration: none; transition: all 0.25s;
     }
+    .deploy-badge:hover { background: rgba(201,168,76,0.12); border-color: var(--gold); }
     .deploy-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 6px #22c55e; animation: pulse 2s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 
@@ -333,6 +335,17 @@ if (!document.head.querySelector(`#${styleId}`)) {
       .skill-tag { font-size: 0.74rem; padding: 0.4rem 0.85rem; }
       .hero-eyebrow { font-size: 0.78rem; }
       .section-label { font-size: 0.75rem; }
+    }
+
+    /* ── DESKTOP ── */
+    @media (min-width: 1024px) {
+      html { font-size: 20px; }
+      .about-body { font-size: 1rem; line-height: 1.95; }
+      .hero-desc { font-size: 1rem; }
+      .cell-body { font-size: 0.95rem; line-height: 1.8; }
+      .ap-h1 { font-size: clamp(3.5rem, 5.5vw, 5.5rem); }
+      .about-heading { font-size: clamp(1.8rem, 2.8vw, 2.6rem); }
+      .project-title { font-size: clamp(2.2rem, 3.5vw, 3.2rem); }
     }
   `;
   document.head.appendChild(s);
@@ -476,10 +489,10 @@ function Hero() {
           </div>
           <ul className="focus-list">
             <li>OpenAI · LangChain · Python</li>
-            <li>FastAPI · React</li>
+            <li>FastAPI · React · Docker</li>
             <li>RAG — Document Q&A</li>
             <li>VIES API — VAT Validation</li>
-            <li>Deployed on Render</li>
+            <li>AWS EC2 · S3 · CloudFront · ACM</li>
           </ul>
         </div>
       </div>
@@ -502,7 +515,11 @@ function About() {
     "Pydantic",
     "VIES API",
     "OCR",
-    "Render",
+    "Docker",
+    "AWS EC2",
+    "AWS S3",
+    "CloudFront",
+    "ACM (SSL)",
   ];
 
   return (
@@ -531,9 +548,11 @@ function About() {
               systems that cut down on manual work.
             </p>
             <p>
-              Right now I'm building <strong>BorderPilot AI</strong> — a tool
-              that checks EU shipment documents automatically so companies don't
-              face delays at the border.
+              I built <strong>BorderPilot AI</strong> end to end — FastAPI
+              backend, React frontend, containerised with{" "}
+              <strong>Docker</strong>, deployed on <strong>AWS</strong> using
+              EC2, S3, CloudFront CDN, and ACM for SSL. Live at a custom domain
+              with HTTPS.
             </p>
           </div>
           <div className="skills-grid">
@@ -595,8 +614,12 @@ const TECH = [
   "Python",
   "FastAPI",
   "React",
+  "Docker",
   "RAG",
   "VIES API",
+  "AWS EC2",
+  "S3",
+  "CloudFront",
 ];
 
 function Project() {
@@ -673,10 +696,15 @@ function Project() {
             ))}
           </div>
 
-          <div className="deploy-badge">
+          <a
+            href="https://borderpilot.anuveekshi.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="deploy-badge"
+          >
             <div className="deploy-dot" />
-            Live — Deployed on Render
-          </div>
+            Live on AWS — borderpilot.anuveekshi.com ↗
+          </a>
         </div>
 
         <div className="rag-section reveal" ref={ragRef}>
