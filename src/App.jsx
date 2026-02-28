@@ -463,7 +463,7 @@ function Hero() {
           into products that actually save time.
         </p>
         <div className="btn-group">
-          <a href="/avinash_resume.pdf" download className="btn-primary">
+          <a href="/ai_avinash.pdf" download className="btn-primary">
             ↓ Resume
           </a>
           <a href="#project" className="btn-secondary">
